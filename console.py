@@ -3,14 +3,13 @@
 import cmd
 import sys
 from models.base_model import BaseModel
-from models.__init__ import storage
 from models.user import User
 from models.place import Place
 from models.state import State
 from models.city import City
 from models.amenity import Amenity
 from models.review import Review
-
+from models.__init__ import storage
 
 class HBNBCommand(cmd.Cmd):
     """ Contains the functionality for HBNB console"""
@@ -254,6 +253,7 @@ class HBNBCommand(cmd.Cmd):
 
         # isolate id from args
         args = args[2].partition(" ")
+
         if args[0]:
             c_id = args[0]
         else:  # id not present
@@ -277,6 +277,7 @@ class HBNBCommand(cmd.Cmd):
                 args.append(v)
         else:  # isolate args
             args = args[2]
+
             if args and args[0] == '\"':  # check for quoted arg
                 second_quote = args.find('\"', 1)
                 att_name = args[1:second_quote]
@@ -321,8 +322,8 @@ class HBNBCommand(cmd.Cmd):
         new_dict.save()  # save updates to file
 
     def help_update(self):
-        """ Help information for the update class """
-        print("Updates an object with new information")
+        """ Help information for update class """
+        print("Updates object with new information")
         print("Usage: update <className> <id> <attName> <attVal>\n")
 
 if __name__ == "__main__":
