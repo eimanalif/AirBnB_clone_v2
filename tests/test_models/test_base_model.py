@@ -8,6 +8,7 @@ import json
 import os
 import pycodestyle
 
+
 class test_basemodel(unittest.TestCase):
     """ """
 
@@ -35,7 +36,7 @@ class test_basemodel(unittest.TestCase):
     def tearDown(self):
         try:
             os.remove('file.json')
-        except:
+        except Exception:
             pass
 
     def test_default(self):
@@ -43,7 +44,7 @@ class test_basemodel(unittest.TestCase):
         i = self.value()
         self.assertEqual(type(i), self.value)
 
-   def test_kwargs(self):
+    def test_kwargs(self):
         """ """
         i = self.value()
         copy = i.to_dict()

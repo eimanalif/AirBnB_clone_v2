@@ -4,6 +4,7 @@ from tests.test_models.test_base_model import test_basemodel
 from models.city import City
 import pycodestyle
 
+
 class test_City(test_basemodel):
     """ """
 
@@ -22,6 +23,7 @@ class test_City(test_basemodel):
         """ """
         new = self.value()
         self.assertEqual(type(new.name), str)
+
 
 class TestCity(unittest.TestCase):
     """this will test the city class X"""
@@ -81,6 +83,7 @@ class TestCity(unittest.TestCase):
         """test if dictionary works"""
         self.assertEqual('to_dict' in dir(self.city), True)
 
+
 class Test_PEP8(unittest.TestCase):
     """test User"""
 
@@ -91,6 +94,6 @@ class Test_PEP8(unittest.TestCase):
         self.assertEqual(result.total_errors, 0,
                          "Found code style errors (and warnings).")
 
+
 if __name__ == "__main__":
     unittest.main()
-
