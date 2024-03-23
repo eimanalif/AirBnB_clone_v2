@@ -53,7 +53,7 @@ class DBStorage:
             objs.extend(self.__session.query(Review).all())
             objs.extend(self.__session.query(Amenity).all())
         else:
-            if type(cls) == str:
+            if isinstance(cls, str):
                 cls = eval(cls)
             objs = self.__session.query(cls)
         return {"{}.{}".format(type(o).__name__, o.id): o for o in objs}
@@ -82,4 +82,3 @@ class DBStorage:
     def close(self):
         """Close the working SQLAlchemy session."""
         self.__session.close()
-
